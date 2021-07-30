@@ -1,0 +1,337 @@
+.container-fluid {
+  display: flex;
+  padding: 0;
+}
+
+.img {
+  width: 100%;
+  margin-top: -75px;
+}
+
+.banner_section {
+  background: url("/assets/img/landing/Group_6.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 0;
+}
+
+.prmotion_section {
+  background: url(/assets/img/landing/Group_7.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 0;
+  margin-top: 30px;
+  color: #fff;
+}
+
+.program_section {
+  background-color: #fff;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 0;
+  margin-top: 30px;
+  color: #333333;
+}
+
+.collaboration_section {
+  background: url(/assets/img/landing/Group_8.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 0;
+  margin-top: 30px;
+  color: #fff;
+}
+
+.description_pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.title_m {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.banner_wrapper {
+  width: calc(100% - 200px);
+}
+
+.banner_description_pane {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.banner_description {
+  font-size: 35px;
+  font-weight: bold;
+  color: #744e2b; 
+}
+
+.banner_img {
+  width: 100%;
+}
+
+.logo_section {
+  background-color: #fff;
+}
+
+.category_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pb-5, .py-5 {
+  padding-bottom: 3rem!important;
+}
+
+.category_title {
+  color: #333333;
+  text-align: center;
+}
+
+.category_item {
+  cursor: pointer;
+}
+
+.category_img {
+  width: 150px;
+  padding: 15px;
+}
+
+.category_btn_pane {
+  text-align: center;
+}
+
+.btn_category {
+  background: #db8d2d;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+  padding: 0.375rem 4rem;
+  color: #fff;
+}
+
+.hand_5 {
+  width: 50px;
+  padding: 10px 0;
+}
+
+.register {
+  width: 500px;
+  height: 760px;
+  background: #fff;
+  filter: drop-shadow(0px 4px 50px rgba(0, 0, 0, 0.16));
+  position: absolute;
+  left: calc(100% - 560px);
+  top: 250px;
+  .logo {
+    height: 200px;
+    display: flex;
+    img {
+      margin: auto;
+      width: 90%;
+      height: auto;
+    }
+  }
+
+  form {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    .form-group {
+      margin-top: 20px;
+      .form-control {
+        border-top: none;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-register {
+      background: #db8d2d;
+      color: #ffffff;
+    }
+  }
+}
+
+.carusel {
+  width: calc(100% - 350px);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  min-height: 600px;
+  ::ng-deep {
+    .carousel-control {
+      display: none;
+    }
+    .carousel-inner {
+      img {
+        width: 100%;
+        height: 900px;
+      }
+    }
+
+    .carousel-indicators {
+      margin-right: unset;
+      left: unset;
+      .ng-star-inserted {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+        margin-left: 20px;
+        border: 0;
+      }
+      .active {
+        background: #db8d2d;
+      }
+    }
+    .carousel-caption {
+      .title {
+        position: absolute;
+        margin-top: -765px;
+        margin-left: -200px;
+        width: 260px;
+        height: 260px;
+        background: linear-gradient(#db8d2d 0%, #f67e6f 66.67%, #f5866f 100%);
+        display: flex;
+        .name {
+          margin: auto;
+          font-family: "Myriad Pro";
+          font-weight: bold;
+          font-size: 40px;
+          line-height: 36px;
+          text-align: center;
+          color: #fff;
+        }
+      }
+
+      .description {
+        margin-top: -550px;
+        margin-left: -200px;
+        width: 60%;
+        position: absolute;
+        font-family: "Myriad Pro";
+        font-weight: bold;
+        font-size: 62px;
+        line-height: 64px;
+        text-align: left;
+        color: #fff;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container-fluid {
+    flex-direction: column;
+  }
+  .time-line {
+    position: unset;
+    width: 100%;
+  }
+
+  .carusel {
+    width: 100%;
+    margin-left: 0px;
+    min-height: 200px!important;
+    ::ng-deep {
+      .carousel-inner {
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .description {
+        margin-top: -100px!important;
+        margin-left: 0!important;
+        font-size: 1em!important;
+        line-height: 1em!important;
+        width: 100%!important;
+      }
+    }
+  }
+}
+
+
+.time-line {
+  width: 200px;
+  display: flex;
+  ul, li {
+    list-style: none;
+    padding: 0;
+  }
+  ul {
+    margin-left: auto;
+    padding: 1rem 0;
+    }
+  li {
+    padding-bottom: 1.5rem;
+    border-left: 2px solid #aa8b6c;
+    position: relative;
+    padding-left: 20px;
+    color: #744e2b;
+    width: 0px;
+    height: 65px;
+  
+    &:before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #744e2b;
+      border: 3px solid #744e2b;
+      border-radius: 50%;
+      position: absolute;
+      left: -7px;
+      top: 0px;
+    }
+
+    &:hover:before {
+      width: 16px;
+      height: 16px;
+      left: -8px;
+    }
+
+    .name {
+      position: absolute;
+      left: -160px;
+      width: max-content;
+      color: #744e2b;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .name:hover {
+      font-weight: bold;
+    }
+
+    &:last-child {
+      border: 0px;
+      padding-bottom: 0;
+    }
+  }
+}

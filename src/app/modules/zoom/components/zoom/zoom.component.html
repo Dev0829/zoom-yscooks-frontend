@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 title" *ngIf="!showPreview">{{meetingName}}</div>
+        <div class="col-12 title" *ngIf="showPreview">Summit May 26th 2021.</div>
+    </div>
+    <div class="flex-zoom-chat">
+        <div id="zoom-content" *ngIf="!showPreview"></div>
+        <div id="img-content" class="row" *ngIf="showPreview">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video id="video-background" class="embed-responsive-item" controls #video1>
+                        <source *ngIf="this.zoomId == '97551507231'"
+                            src="https://zoom-yscooks.s3.amazonaws.com/assets/video/Video+1.mp4" type="video/mp4" />
+                        <source *ngIf="this.zoomId == '93257914403'"
+                            src="https://zoom-yscooks.s3.amazonaws.com/assets/video/Video+2.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div id="chat-content">
+            <div class="card-body">
+                <div class="comments">
+                    <div class="comment" *ngFor="let comment of comments; let last = last"
+                        [ngClass]="{ 'last-comment': last }">
+                        <img class="photo" src="{{
+                comment?.user?.profileImage || '/assets/img/profile.png'
+                }}" />
+                        <div class="text">
+                            <span class="comment-author" routerLink="{{ '/profile/' + comment?.user?.uid }}">
+                                {{ comment?.user?.name }}
+                            </span>
+                            {{ comment.text }}
+                            <i *ngIf="comment?.user?.uid === user?.uid || user?.isAdmin"
+                                class="fas fa-trash pull-right pointer" (click)="deleteComment(comment)"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-comment">
+                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Add comment" [(ngModel)]="newComment" />
+                        <div class="input-group-prepend">
+                            <div class="input-group-text pointer" (click)="addComment()">
+                                <i class="fas fa-comment pull-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row sponsors">
+        <div class="col-2">sponsor1</div>
+        <div class="col-2">sponsor2</div>
+        <div class="col-2">sponsor3</div>
+        <div class="col-2">sponsor4</div>
+        <div class="col-2">sponsor5</div>
+        <div class="col-2">sponsor6</div>
+    </div> -->
+</div>
+<app-footer></app-footer>

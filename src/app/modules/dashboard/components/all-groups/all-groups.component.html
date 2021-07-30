@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="content">
+  <div class="container">
+    <ul class="row">
+      <ng-container *ngFor="let group of allGroups">
+        <li class="col-sm-3">
+          <div class="group-element">
+            <img
+              class="group-element-img"
+              alt
+              src="{{ group.imageUrl || '/assets/img/placeholder.png' }}"
+              loading="lazy"
+            />
+            <div
+              class="group-title"
+              *ngIf="(user && user?.uid) || group.isPublic"
+              routerLink="{{ '/groups/' + group.groupid }}"
+            >
+              <a class="go-to-group">{{ group.name }}</a>
+              <button class="btn learn-more">Learn More</button>
+            </div>
+            <div
+              class="group-title"
+              *ngIf="!user && !group.isPublic"
+              (click)="openLogin($event)"
+            >
+              <a class="go-to-group">{{ group.name }}</a>
+              <button class="btn learn-more">Learn More</button>
+            </div>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>

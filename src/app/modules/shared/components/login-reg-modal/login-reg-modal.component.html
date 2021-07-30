@@ -1,0 +1,218 @@
+<div bsModal #modal="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content login-content flex" *ngIf="modalContent?.login">
+      <button type="button" class="close pull-right" (click)="modal.hide()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="login_page">
+        <div class="logholder_div">
+          <h3 class="modal-title pull-left">
+            Login
+          </h3>
+          <form *ngIf="showForm" [formGroup]="formLogin" (ngSubmit)="onSubmitLogin(formLogin.value)"
+            class="form-horizontal login-form">
+            <div class="form-group" [ngClass]="{
+                'has-error': !emailLog.valid && emailLog.touched,
+                'has-success': emailLog.valid && emailLog.touched
+              }">
+              <input [formControl]="emailLog" type="email" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group" [ngClass]="{
+                'has-error': !passwordLog.valid && passwordLog.touched,
+                'has-success': passwordLog.valid && passwordLog.touched
+              }">
+              <input [formControl]="passwordLog" type="password" class="form-control" placeholder="Password" />
+              <div [hidden]="
+                  !signInError || passwordLog.touched || emailLog.touched
+                " class="alert alert-danger" role="invalid-mail-pass">
+                Invalid email address or password.
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" [formControl]="remember" /> Remember me
+                </label>
+              </div>
+            </div> -->
+            <div class="forgot-pass">
+              <a (click)="showRestorePassword()">Forgot Password?</a>
+            </div>
+
+            <div class="form-group holder_form sub_but">
+              <button [disabled]="!formLogin.valid" type="submit" role="sign-in" class="">
+                SIGN IN
+              </button>
+            </div>
+            <!-- <div class="form-group row">
+              <div class="offset-sm-2 col-sm-10">
+                <a (click)="showRegister()" class="bold pointer" role="create-user">Sign up!</a>
+              </div>
+            </div> -->
+          </form>
+          <ng-container *ngIf="!showForm">
+            <div class="holder_form sub_but">
+              <a (click)="signInWithGoogle()" class="google_but">
+                <div class="text">
+                  <i class="fab icon-g"></i> Sign in with Google
+                </div>
+              </a>
+            </div>
+            <!-- <div class="holder_form sub_but">
+              <a (click)="signInWithFB()" class="facebook_but">
+                <div class="text"> <i class="fab fa-facebook"></i> Sign in with Facebook </div>
+              </a>
+            </div> -->
+            <div class="use-email" (click)="showForm = true">or use e-mail</div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content register-content flex" *ngIf="modalContent?.reg">
+      <button type="button" class="close pull-right" (click)="modal.hide()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="register-page">
+        <div class="background">
+          <span>Join a community where global food industry leaders learn, share, network and promote their businesses.</span>
+        </div>
+        <div class="logholder_div">
+          <h3 class="modal-title pull-left">
+            Registration
+          </h3>
+          <form [formGroup]="formReg" (ngSubmit)="onSubmitReg(formReg.value)" class="form-horizontal" *ngIf="showForm">
+            <div class="form-group">
+              <input [formControl]="nameReg" type="text" class="form-control" placeholder="Full Name" />
+              <div *ngIf="!nameReg.valid && nameReg.touched" class="alert alert-danger">
+                Full name is too short
+              </div>
+            </div>
+            <div class="form-group" [ngClass]="{
+                'has-error': !emailReg.valid && emailReg.touched,
+                'has-success': emailReg.valid && emailReg.touched
+              }">
+              <input [formControl]="emailReg" type="email" class="form-control" id="email" placeholder="Email" />
+              <div [hidden]="!emailError || emailReg.touched" role="email-registered" class="alert alert-danger">
+                This email is already registered
+              </div>
+              <div [hidden]="!emailReg.touched || emailReg.valid" role="email-incorect" class="alert alert-danger">
+                This email is incorrect
+              </div>
+            </div>
+            <div class="form-group">
+              <input [formControl]="companyReg" type="text" class="form-control" placeholder="Company" />
+              <div *ngIf="!companyReg.valid && companyReg.touched" class="alert alert-danger">
+                Company is too short
+              </div>
+            </div>
+            <div class="form-group">
+              <input [formControl]="titleReg" type="text" class="form-control" placeholder="Title" />
+              <div *ngIf="!titleReg.valid && titleReg.touched" class="alert alert-danger">
+                Title is too short
+              </div>
+            </div>
+            <div class="form-group">
+              <input [formControl]="linkedinReg" type="text" class="form-control" placeholder="Linkedin" />
+              <div *ngIf="!linkedinReg.valid && linkedinReg.touched" class="alert alert-danger">
+                Linkedin is too short
+              </div>
+            </div>
+            <div class="form-group" [ngClass]="{
+                'has-error': !passwordReg.valid && passwordReg.touched,
+                'has-success': passwordReg.valid && passwordReg.touched
+              }">
+              <input [formControl]="passwordReg" type="password" class="form-control" id="password"
+                placeholder="Password" />
+              <div *ngIf="!passwordReg.valid && passwordReg.touched" class="alert alert-danger">
+                Passwords is too short
+              </div>
+            </div>
+            <div class="form-group" [ngClass]="{
+                'has-error':
+                  !repeatPasswordReg.valid && repeatPasswordReg.touched,
+                'has-success':
+                  repeatPasswordReg.valid && repeatPasswordReg.touched
+              }">
+              <input [formControl]="repeatPasswordReg" type="password" class="form-control" id="repassword"
+                placeholder="Repeat" />
+              <div *ngIf="
+                  (!passwordsReg.valid && repeatPasswordReg.touched) ||
+                  passwordError
+                " role="pass-not-match" class="alert alert-danger">
+                Passwords don't match.
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox-reg">
+                <input type="checkbox" [formControl]="agreeTerms" />
+                You confirm that you are agree with our terms and conditions
+              </div>
+            </div>
+            <div class="form-group" [ngClass]="{
+                'has-error': !parentEmailReg.valid && parentEmailReg.touched,
+                'has-success': parentEmailReg.valid && parentEmailReg.touched
+              }" *ngIf="showParentEmail">
+              <input [formControl]="parentEmailReg" type="email" class="form-control" id="email"
+                placeholder="Parent email" />
+              <div [hidden]="!parentEmailReg.touched || parentEmailReg.valid" role="email-incorect"
+                class="alert alert-danger">
+                This email is incorrect
+              </div>
+            </div>
+            <div class="form-group">
+              <button [disabled]="
+                  !emailReg.valid ||
+                  !nameReg.valid ||
+                  !titleReg.valid ||
+                  !linkedinReg.valid ||
+                  !companyReg.valid ||
+                  !repeatPasswordReg.valid ||
+                  !agreeTerms.value
+                " type="submit" id="singup" class="singup">
+                Join Us!
+              </button>
+            </div>
+
+          </form>
+          <ng-container *ngIf="!showForm">
+            <div class="holder_form sub_but">
+              <a (click)="googleReg()" class="google_but">
+                <div class="text">
+                  <i class="fab icon-g"></i> Sign up with Google
+                </div>
+              </a>
+            </div>
+            <!-- <div class="holder_form sub_but">
+              <a (click)="facebookReg()" class="facebook_but">
+                <div class="text"> <i class="fab fa-facebook"></i> Sign up with Facebook </div>
+              </a>
+            </div> -->
+            <!-- <div class="use-login" *ngIf="modalContent?.joinPopup" (click)="showLogin()">Login</div> -->
+            <div class="use-email" (click)="showForm = true">or use e-mail</div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content login-content flex" *ngIf="modalContent?.restorePass">
+      <button type="button" class="close pull-right" (click)="modal.hide()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="login_page">
+        <div class="logholder_div">
+          <h3 class="modal-title pull-left">
+            Member Restore password
+          </h3>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="emailForRestore" />
+          </div>
+          <div class="form-group holder_form sub_but">
+            <button type="submit" role="sign-in" (click)="restorePassword()">
+              Restore password
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

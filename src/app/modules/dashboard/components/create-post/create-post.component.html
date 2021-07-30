@@ -1,0 +1,64 @@
+<div bsModal #modal="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">
+          {{ edit ? "Edit post" : "Create post" }}
+        </h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="modal.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="email">Text</label>
+          <textarea
+            id="description"
+            class="form-control input-lg"
+            rows="4"
+            [(ngModel)]="post.text"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group row">
+          <label for="example-text-input" class="col-md-12 col-form-label"
+            >Image (Max. size 15MB)</label
+          >
+          <div class="col-md-12">
+            <input
+              class="form-control-file"
+              type="file"
+              ng2FileSelect
+              [uploader]="uploaderImage"
+              role="image-input"
+              (click)="addImageUploader()"
+              accept="image/*"
+            />
+          </div>
+          <div class="col-md-12" *ngIf="uploaderImage?.queue?.length">
+            <div *ngFor="let item of uploaderImage.queue" class="media-objects">
+              <img src="" imgPreview [image]="item?._file" class="images" />
+              <i class="fas fa-trash" (click)="item.remove()"></i>
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="
+            !post?.text?.length ||
+            (!uploaderImage?.queue?.length && !post?.mediaUrls?.length)
+          "
+          (click)="startUpload()"
+        >
+          {{ edit ? "Edit" : "Create" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

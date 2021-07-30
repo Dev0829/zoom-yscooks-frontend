@@ -1,0 +1,169 @@
+<ng-container *ngIf="selectPrice">
+    <app-header></app-header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-12">
+                <div class="background">
+                    <span>Join A Global Network Of Food Industry Leaders, Stay Ahead Of Trends & Promote Your
+                        Business</span>
+                </div>
+            </div>
+            <div class="col-md-8 col-12 table-scroll">
+                <div class="table title">
+                    <div class="benefits">Benefits</div>
+                    <div class="months">3 months</div>
+                    <div class="months">6 months</div>
+                    <div class="months">12 months</div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Full access to videos from FoodNiche tech summit and FoodNiche global health
+                        Summit</div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Connect with global leaders and stakeholders in the food industry.</div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Share information about your brand</div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Discover and engage with innovative brands</div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Food industry updates via newsletter</div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Pass to all FoodNiche virtual conferences</div>
+                    <div class="months">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Priority access to FoodNiche conference promotional opportunities</div>
+                    <div class="months">
+                    </div>
+                    <div class="months">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="benefits">Discounted pass to FoodNiche in-person conference.</div>
+                    <div class="months">
+                    </div>
+                    <div class="months">
+                    </div>
+                    <div class="months">
+                        <img src="/assets/img/check.png" alt="check">
+                    </div>
+                </div>
+                <div class="table title">
+                    <div class="benefits">Investment</div>
+                    <div class="months">
+                        $150
+                    </div>
+                    <div class="months">
+                        $270
+                    </div>
+                    <div class="months">
+                        $480
+                    </div>
+                </div>
+
+                <div class="table">
+                    <div class="benefits"></div>
+                    <div class="months">
+                        <button class="btn btn-select" (click)="select('m3')">Select</button>
+                    </div>
+                    <div class="months">
+                        <button class="btn btn-select" (click)="select('m6')">Select</button>
+                    </div>
+                    <div class="months">
+                        <button class="btn btn-select" (click)="select('m12')">Select</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 col-12">
+                <div class="time-line">
+                    <ul>
+                        <li>
+                            <a routerLink='/podcast' class="name">Podcast</a>
+                        </li>
+                        <li>
+                            <a class="name" href="https://www.gfhisummit.com/" target="_blank">FoodNiche® <br>
+                                Global Health Summit</a>
+                        </li>
+                        <li>
+                            <a class="name" target="_blank" href="https://www.disruptfoodsummit.com/">FoodNiche® <br>
+                                Tech Summit</a>
+                        </li>
+                        <li>
+                            <a class="name" routerLink='/join-to-conference'>Videos</a>
+                        </li>
+                        <li>
+                            <a class="name" routerLink='/'>Contacts us</a>
+                        </li>
+                        <li>
+                            <a class="name" routerLink='/payments/select'>Join Us!</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <app-footer></app-footer>
+</ng-container>
+<app-login-reg-modal></app-login-reg-modal>

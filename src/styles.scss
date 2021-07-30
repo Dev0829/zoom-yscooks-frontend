@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap.scss";
+@import "ngx-toastr/toastr.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "quill-emoji/dist/quill-emoji.css";
+
+.pointer {
+  cursor: pointer;
+}
+
+.page-item.active .page-link {
+  background-color: #db8d2d !important;
+  border-color: #db8d2d !important;
+  color: white !important;
+}
+
+.page-link {
+  color: #db8d2d;
+}
+.page-link:hover {
+  color: #db8d2d;
+}
+
+.ql-container {
+  min-height: 100px;
+}
+
+.btn-brown {
+  background-color: #944d1b !important;
+}
+.review {
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    display: none !important;
+  }
+  .col-12 {
+    margin-top: 50px;
+    p {
+      text-align: center;
+      color: white;
+      font-size: x-large;
+    }
+  }
+}
+
+#zmmtg-root {
+  display: none;
+  overflow: scroll;
+}
+
+html,
+body {
+  overflow: auto !important;
+  background: #fff;
+  font-family: myriad-pro, sans-serif;
+  height: 100% !important;
+  width: 100%!important;
+  min-width: 100%!important;
+  max-width: 100%!important;
+
+}
+
+.nav-link {
+  color: #495057;
+}
+
+#zmmtg-root {
+  display: none;
+  position: relative!important;
+
+  .meeting-app {
+    width: inherit!important;
+    height: inherit!important;
+  }
+  .meeting-client,
+  .meeting-client-inner {
+    position: relative!important;
+  }
+
+  .join-dialog {
+    display: none !important;
+  }
+
+  .sharee-sharing-indicator {
+    display: none !important;
+  }
+}
+
+#wc-footer {
+  .footer__leave-btn-container,
+  .more-button,
+  .ax-outline {
+    display: none !important;
+  }
+}

@@ -1,0 +1,15 @@
+.media-objects {
+  height: 110px;
+
+  .images {
+    width: 90%;
+    //   height: 100px;
+    float: left;
+  }
+
+  i {
+    font-size: 1em;
+    margin-left: 2%;
+    cursor: pointer;
+  }
+}

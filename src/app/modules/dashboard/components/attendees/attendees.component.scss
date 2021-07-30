@@ -1,0 +1,54 @@
+.container-fluid {
+    min-height: calc(100vh - 240px);
+    background-color: #f4f4fb;
+
+    .title {
+        margin-top: 50px;
+        font-size: 80px;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+
+    .peaple-conteiner {
+        margin-top: 50px;
+        display: flex;
+        .user {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .name {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 30px;
+            }
+
+            .company {
+                margin-top: 30px;
+                color: #707070;
+                font-size: 16px;
+            }
+
+            .linkedin {
+                width: 122px;
+                height: 32px;
+                background: linear-gradient(#db8d2d 0%, #f5866f 100%);
+                display: flex;
+                margin-top: 30px;
+
+                .text {
+                    margin: auto;
+                    color: white;
+                }
+            }
+            height: 300px;
+        }
+    }
+}

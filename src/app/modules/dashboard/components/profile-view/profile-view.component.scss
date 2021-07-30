@@ -1,0 +1,89 @@
+#first-block {
+  min-height: calc( 100vh - 230px);
+  .row {
+    margin-top: 50px;
+  }
+  .profile-img {
+    border-radius: 10px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .connect {
+    margin-top: 20px;
+    .btn-connect {
+      border-radius: 40px;
+      margin: 6px 6px 6px 6px;
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: #f6921e;
+      border: #f6921e solid 1px;
+      color: white;
+    }
+  }
+
+  .user-name {
+    font-weight: bold;
+    font-size: 3em;
+  }
+
+  .user-descriptions {
+    margin-top: 5px;
+  }
+}
+
+#second-block {
+  min-height: 500px;
+
+  .column-name {
+    border-radius: 40px;
+    padding: 10px;
+    border: #f6921e solid 1px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .items {
+    margin-top: 20px;
+  }
+  margin-bottom: 50px;
+
+  .posts {
+    margin-top: 20px;
+  }
+  .card {
+    height: 220px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .media {
+      margin: auto;
+    }
+    img {
+      margin: auto;
+      max-height: 220px;
+      width: 100%;
+    }
+  }
+  .card-text {
+    color: white;
+  }
+  margin-bottom: 50px;
+  .card-img-overlay {
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0%;
+    color: #ffffff;
+    background-image: linear-gradient(0deg, #212529 15%, transparent 70%);
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #744c28;
+}

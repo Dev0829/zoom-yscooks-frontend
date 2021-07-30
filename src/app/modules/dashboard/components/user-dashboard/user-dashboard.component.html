@@ -1,0 +1,80 @@
+<app-header></app-header>
+<section>
+  <div class="feed">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="d-flex flex-column">
+            <div class="profile-img d-flex justify-content-center">
+              <img routerLink="{{ '/profile/' + user?.uid }}"
+                src="{{ user?.profileImage || '/assets/img/profile.png' }}" class="img-fluid rounded-circle pointer" />
+            </div>
+            <div class="d-flex justify-content-center profile-edit-name">
+              <div class="profile-name pointer" routerLink="{{ '/profile/' + user?.uid }}">{{ user?.name }}</div>
+              <button type="button" class="btn btn-edit" (click)="openEditModal()">
+                Edit
+              </button>
+            </div>
+            <div class="ections">
+              <div class="ection" routerLink="/posts">
+                <a class="link-top" href="https://open.spotify.com/show/0f0PsLVBmdoeDUu1tq5oXr" target="_blank">Listen To
+                  Food + Health Talks</a>
+  
+                <div class="d-flex justify-content-center">
+                  <img src="/assets/img/dashboard/discover-brands-icon@2x.png" class="img-fluid"
+                    popover="Click here to share your cooking experiences with friends to earn points" container="body"
+                    [isOpen]="popovers.posts" placement="left" triggers="" />
+                </div>
+                <p class="">
+                  Discover brands and resources
+                </p>
+              </div>
+              <a class="ection" routerLink="/attendees" target="_blank" popover="Click here to invite friends & share your nourishing dining
+                experiences with them." container="body" triggers="" [isOpen]="popovers.invite">
+                <div class="d-flex justify-content-center">
+                  <img src="/assets/img/dashboard/connect-with-attendees@2x.png" class="img-fluid" />
+                </div>
+                <p class="">
+                  Connect with food industry leaders
+                </p>
+              </a>
+              <!-- <div class="ection" routerLink="/join-to-conference">
+                <div class="d-flex justify-content-center">
+                  <img src="/assets/img/dashboard/join-to-zoom@2x.png" class="img-fluid" />
+                </div>
+                <p class="">
+                  Join the conference
+                </p>
+              </div> -->
+              <div class="ection">
+                <a class="link-top" routerLink="/join-to-conference" target="_blank">Listen
+                  Watch Past Summits</a>
+
+                <div class="d-flex justify-content-center" popover="coming soon" container="body">
+                  <img src="/assets/img/dashboard/join-to-zoom@2x.png" class="img-fluid" />
+                </div>
+                <p class="" popover="coming soon" container="body">
+                  Attend Upcoming Webinars/Virtual Events
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="d-flex justify-content-center">
+            <div class="embed-responsive embed-responsive-4by3">
+              <video id="video-background" class="embed-responsive-item" controls #video1>
+                <source src="https://zoom-yscooks.s3.amazonaws.com/assets/video/video-dashboard.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+<app-modal-invitation></app-modal-invitation>
+<div bsModal #emptyModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"></div>
+<app-edit-profile (profileEdited)="getUserProfile()"></app-edit-profile>

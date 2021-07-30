@@ -1,0 +1,110 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="height: 35px;"></div>
+  </div>
+  <div class="row">
+    <div class="offset-md-2 col-md-8 col-12">
+      <ng-container *ngIf="post?.media?.length">
+        <ng-container *ngFor="let media of post.media">
+          <img
+            *ngIf="media.type == 'image'"
+            class="card-img rightside1"
+            src="{{ media?.url }}"
+            alt="Card image"
+          />
+          <video
+            *ngIf="media.type == 'video'"
+            class="card-img rightside1"
+            controls
+          >
+            <source [src]="media?.url" />
+          </video>
+          <pdf-viewer
+            *ngIf="media.type == 'pdf'"
+            [src]="media?.url"
+            [fit-to-page]="true"
+          ></pdf-viewer>
+        </ng-container>
+      </ng-container>
+      <!-- <img
+        class="rightside1"
+        src="{{
+          post?.Pictures && post?.Pictures.length
+            ? post.Pictures[0]?.url
+            : '/assets/img/placeholder.png'
+        }}"
+        alt="Foodnichepost"
+      /> -->
+      <div class="dumtext row">
+        <div class="col-12">
+          <p class="firstp pull-right">
+            <ng-container *ngIf="user?.uid === post?.user?.uid">
+              <i class="fas fa-edit" (click)="edit()"></i>
+              <i class="fas fa-trash" (click)="delete()"></i>
+            </ng-container>
+          </p>
+        </div>
+        <div class="col-12">
+          <div class="float-left">
+            {{ post.createdAt | date }} by
+            <a
+              class="pointer profile-link"
+              routerLink="{{ '/profile/' + post?.user?.uid }}"
+              >{{ post?.user?.name }}</a
+            >
+          </div>
+        </div>
+        <div class="col-12" [innerHTML]="post.text"></div>
+      </div>
+    </div>
+    <div class="offset-md-2 col-md-8 col-12">
+      <div
+        class="coment"
+        *ngFor="let coment of post.Comments; let last = last"
+        [ngClass]="{ 'last-coment': last }"
+      >
+        <img
+          class="photo"
+          src="{{ coment?.user?.profileImage || '/assets/img/profile.png' }}"
+        />
+        <div class="text">
+          <span
+            class="comment-author"
+            routerLink="{{ '/profile/' + coment?.user?.uid }}"
+          >
+            {{ coment?.user?.name }}
+          </span>
+          {{ coment.text }}
+          <i
+            *ngIf="coment?.user?.uid === user?.uid"
+            class="fas fa-trash pull-right pointer"
+            (click)="deleteComent(coment)"
+          ></i>
+        </div>
+      </div>
+      <div class="new-coment" *ngIf="user?.uid">
+        <label class="sr-only" for="inlineFormInputGroup">username</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Add comment"
+            [(ngModel)]="newComent[post.postid]"
+          />
+          <div class="input-group-prepend">
+            <div
+              class="input-group-text pointer"
+              (click)="addComent(post.postid)"
+            >
+              <i class="fas fa-comment pull-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-delete-post (deleted)="postDeleted()"></app-delete-post>
+<!-- <app-create-post (postCreated)="postEdited()"></app-create-post> -->

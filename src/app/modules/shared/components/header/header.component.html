@@ -1,0 +1,97 @@
+<!-- NAVBAR -->
+<nav id="navbar" class="navbar main-header navbar-expand-md" [class.main-header-sm]="data?.subscribe">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <img src="/assets/img/logo.png" class="img-fluid logo-supercook"
+        alt="logo" />
+    </a>
+    <div class="d-lg-none mobile-nav" dropdown container="body">
+      <button type="button" dropdownToggle>&#9776;</button>
+      <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-mobile" role="menu"
+        aria-labelledby="button-animated">
+        <li role="menuitem" *ngIf="isLoggined()">
+          <a class="dropdown-item" routerLink="/posts">Discover brands</a>
+        </li>
+        <li role="menuitem" *ngIf="data?.home && isLoggined()">
+          <a class="dropdown-item" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li role="menuitem" *ngIf="!isLoggined() && data?.login">
+          <a class="dropdown-item" (click)="openLogRegModal('login')">Login</a>
+        </li>
+        <li role="menuitem" *ngIf="!isLoggined() && data?.register">
+          <a class="dropdown-item" routerLink="/payments/select">Join Now!</a>
+        </li>
+        <li role="menuitem" *ngIf="isLoggined() && data?.logout">
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </li>
+        <li role="menuitem" *ngIf="data?.contactUs">
+          <a [class]="'dropdown-item'"
+            href="https://calendly.com/gfhii/foodnichesummit?month=2021-05">Contact Us</a>
+        </li>
+        <li role="menuitem" *ngIf="data?.techSummits">
+          <a [class]="'dropdown-item'"
+            href="https://mcusercontent.com/3bf1a51b74a47d37b1e2b5d32/files/f6e9a450-f887-a34c-1b79-62d13264ffce/Conference_Agenda_2021.02.pdf">Tech Summits</a>
+        </li>
+        <li role="menuitem" *ngIf="data?.globalHealthSummit">
+          <a [class]="'dropdown-item'"
+            href="https://mcusercontent.com/3bf1a51b74a47d37b1e2b5d32/files/f6e9a450-f887-a34c-1b79-62d13264ffce/Conference_Agenda_2021.02.pdf">Global Health Summit</a>
+        </li>
+
+        
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse hidden-md-down justify-content-end">
+      <ul class="nav">
+        <li class="nav-item" *ngIf="data?.techSummits" dropdown>
+          <button dropdownToggle type="button" dropdownToggle [class]="'dropdown-toggle btn btn-login ' + btnClass">
+            FoodNiche® Tech Summits
+          </button>
+          <ul *dropdownMenu class="dropdown-menu">
+            <li role="menuitem"><a class="dropdown-item" href="https://mcusercontent.com/3bf1a51b74a47d37b1e2b5d32/files/f6e9a450-f887-a34c-1b79-62d13264ffce/Conference_Agenda_2021.02.pdf">Agenda</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="https://www.disruptfoodsummit.com/">Speaker</a></li>
+          </ul>
+        </li>
+        <li class="nav-item" *ngIf="data?.globalHealthSummit" dropdown>
+          <button dropdownToggle type="button" dropdownToggle [class]="'dropdown-toggle btn btn-login ' + btnClass">
+            FoodNiche® Global Health Summit
+          </button>
+          <ul *dropdownMenu class="dropdown-menu">
+            <li role="menuitem"><a class="dropdown-item" href="https://mcusercontent.com/3bf1a51b74a47d37b1e2b5d32/files/f6e9a450-f887-a34c-1b79-62d13264ffce/Conference_Agenda_2021.02.pdf">Agenda</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="https://www.gfhisummit.com/speakers-style3/">Speaker</a></li>
+          </ul>
+        </li>
+        <li class="nav-item" *ngIf="data?.contactUs">
+          <a [class]="'btn btn-login ' + btnClass "
+            href="https://calendly.com/gfhii/foodnichesummit?month=2021-05"> Contact Us</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggined() && data?.posts">
+          <button type="button" [class]="'btn btn-login ' + btnClass" routerLink="/posts">
+            Discover brands
+          </button>
+        </li>
+
+        <li class="nav-item" *ngIf="data?.dashboard && isLoggined()">
+          <button type="button" [class]="'btn btn-login ' + btnClass" routerLink="/dashboard">
+            Dashboard
+          </button>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggined() && data?.login">
+          <button type="button" [class]="'btn btn-login ' + btnClass" (click)="openLogRegModal('login')">
+            <img src="/assets/img/Hand_4.png" class="hand_4" alt="Hand_4" />
+          </button>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggined() && data?.register">
+          <button type="button" [class]="'btn btn-login ' + btnClass" routerLink="/payments/select">
+            Join Now!
+          </button>
+        </li>
+        <li class="nav-item" *ngIf="isLoggined() && data?.logout">
+          <button type="button" [class]="'btn btn-login ' + btnClass" (click)="logout()">
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<app-login-reg-modal></app-login-reg-modal>

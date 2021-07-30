@@ -1,0 +1,147 @@
+.background {
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(148.61deg, #6a4e2f 35.17%, #db8d2d 92.83%);
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
+    span {
+        margin: auto;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        color: #ffffff;
+    }
+}
+
+.container-fluid {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.time-line {
+    margin: auto;
+    display: flex;
+    @media only screen and (max-width: 900px) {
+        display: none;
+    }
+
+    ul,
+    li {
+        list-style: none;
+        padding: 0;
+    }
+    ul {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    li {
+        padding-bottom: 1.5rem;
+        border-left: 3px solid #c4c4c4;
+        position: relative;
+        padding-left: 20px;
+        color: #9a9a9a;
+        width: 0px;
+        height: 130px;
+
+        &:before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background: #9a9a9a;
+            border: 3px solid #9a9a9a;
+            border-radius: 50%;
+            position: absolute;
+            left: -9px;
+            top: 0px;
+        }
+
+        &:hover:before {
+            background: #db8d2d !important;
+            border: 3px solid #db8d2d !important;
+        }
+
+        .name {
+            position: relative;
+            left: -200px;
+            width: max-content;
+            color: #9a9a9a;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .name:hover {
+            color: #db8d2d;
+            cursor: pointer;
+        }
+
+        &:last-child {
+            border: 0px;
+            padding-bottom: 0;
+        }
+
+        &:last-child:before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            position: absolute;
+            left: -6px;
+            top: 0px;
+        }
+    }
+}
+
+.table {
+    width: calc(100% - 200px);
+    display: flex;
+    min-height: 60px;
+
+    @media (max-width: 767px) {
+        width: 800px;
+    }
+    .title {
+        * {
+            font-size: 24px !important;
+        }
+    }
+    .benefits {
+        width: 55%;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .months {
+        width: 15%;
+        margin: auto;
+        text-align: center;
+        img {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}
+
+.btn-select {
+    margin: 6px 6px 6px 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: transparent;
+    border: 2px solid #db8d2d;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #db8d2d;
+}
+
+.table:nth-child(2n) {
+    background: rgba(229, 229, 229, 0.5);
+}
+
+.table-scroll {
+    overflow: auto;
+}

@@ -1,0 +1,19 @@
+<app-header></app-header>
+<app-feed-grid
+  [data]="posts"
+  [lessonPosts]="lessonPosts"
+  (changed)="changed()"
+></app-feed-grid>
+<div class="container-fluid">
+  <div class="row col-12">
+    <pagination
+      [totalItems]="paginator.total"
+      [itemsPerPage]="paginator.itemPerPage"
+      [ngModel]="paginator.page"
+      (pageChanged)="pageChanged($event)"
+      [maxSize]="5"
+      [boundaryLinks]="true"
+    ></pagination>
+  </div>
+</div>
+<app-footer></app-footer>

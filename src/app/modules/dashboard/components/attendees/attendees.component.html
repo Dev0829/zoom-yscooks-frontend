@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="title">
+        Attendees
+    </div>
+    <div class="peaple-conteiner row">
+        <div class="col-md-2 col-12 user" *ngFor="let user of users">
+            <img routerLink="{{ '/profile/' + user?.uid }}" src="{{ user?.profileImage || '/assets/img/profile.png' }}"
+                class="img-fluid" />
+
+            <div class="name">
+                {{user?.name}}
+            </div>
+            <div class="company">
+                {{user?.title}}, {{user?.company}}
+            </div>
+
+            <div class="linkedin" *ngIf="user?.linkedin">
+                <a href="{{user?.linkedin}}" class="text">Connect</a>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

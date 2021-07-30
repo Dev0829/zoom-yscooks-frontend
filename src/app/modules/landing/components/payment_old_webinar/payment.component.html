@@ -1,0 +1,488 @@
+<ng-container *ngIf="selectPrice">
+    <div class="container-fluid">
+        <section class="section-1">
+            <img src="/assets/img/payments/payments-1.png" class="img-fluid" alt="">
+            <div class="text">
+                <div class="text-1">Join 30 + Speakers and <br>Thought-leaders</div>
+                <div class="text-2">For 2 Days Of Insightful Conversations,<br> Networking and Collaboration
+                </div>
+            </div>
+        </section>
+        <section class="section-2">
+            <div class="plans">
+                <div class="title">REGISTER</div>
+                <tabset>
+                    <tab heading="Register">
+                        <div class="tables header-padding">
+                            <div class="event header"> <span>Event Benefits</span>
+                            </div>
+                            <div class="regular header"><span>Regular Tickets</span>
+                            </div>
+                            <div class="business header "><span>Business Tickets</span>
+                            </div>
+
+                        </div>
+                        <div class="tables">
+                            <div class="event"> <span>Full access to entire 2-day summit programming.
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables tables-bg">
+                            <div class="event"> <span>Full Access to Videos From All Sessions Post-Summit
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables">
+                            <div class="event"> <span>Connect with global leaders and stakeholders in the food industry
+
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables tables-bg">
+                            <div class="event"> <span>Discover potential partners and collaborators via attendee profile
+                                    LinkedIn
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables">
+                            <div class="event"> <span>Discover and engage with innovative food brands at the summit and
+                                    for six months post summit
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables tables-bg">
+                            <div class="event"> <span>Free Access/Invitation To Engaging Food Industry Conversation for
+                                    six months post summit
+
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables">
+                            <div class="event"> <span>Biweekly Food Industry Updates, Reports, Interview Invitation ++
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables tables-bg">
+                            <div class="event"> <span>Expand your network, connect with food industry leaders for six
+                                    months post summit
+                                </span>
+                            </div>
+                            <div class="regular"> <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables">
+                            <div class="event"> <span>Showcase brand to attendees and engage with potential customers or
+                                    partners.
+
+                                </span>
+                            </div>
+                            <div class="regular">
+                            </div>
+                            <div class="business"><i class="far fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="tables select">
+                            <div class="event"> <span>Registration fees
+                                </span>
+                            </div>
+                            <div class="regular">
+                                <span> $300</span>
+                                <button class="btn" (click)="selectRegular()">Select Plan</button>
+                            </div>
+                            <div class="business"> <span> $600</span>
+                                <button class="btn" (click)="selectBusiness()">Select Plan</button>
+                            </div>
+                        </div>
+                        <fieldset class="stripe-fieldset">
+                            <legend align="center">Payment processed securely through STRIPE</legend>
+                            <div class="images">
+                                <img src="/assets/img/payments/cards-1.png" class="img">
+                                <img src="/assets/img/payments/cards-2.png" class="img">
+                                <img src="/assets/img/payments/cards-3.png" class="img">
+                                <img src="/assets/img/payments/cards-5.png" class="img">
+
+                            </div>
+                        </fieldset>
+
+                    </tab>
+                    <tab heading="Agenda day 1">
+                        <div class="tables-agenda header-padding">
+                            <div class="time header"><span>Time</span></div>
+                            <div class="session header"><span>Session – MAY 26th, 2021</span></div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>10:30 am</span></div>
+                            <div class="session"><span>Registration and Networking</span></div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>11:00 am</span></div>
+                            <div class="session tables-bg"><span>Welcome</span></div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>11:05 am</span></div>
+                            <div class="session"><span>Opening Keynote – Innovating Food Intelligently In A Post-
+                                    COVID-19 World</span></div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>11:15 am</span></div>
+                            <div class="session">
+                                <span class="session-title"> Global Trend In Food Innovation and Technology: How
+                                    Investors Are Promoting A Healthier and Sustainable Future
+                                </span>
+                                <span>
+                                    In this conversation, a panel of investors will share insights on factors guiding
+                                    their decisions and innovations that are attracting their attention and why. This
+                                    panel will also cover insights on how these innovations will shape a healthier
+                                    future of food.
+                                    Speakers: <b>Ivan Farneti – Founding Partner, Five Seasons Ventures.| Joshua Siegel-
+                                        General Partner, Acronym Venture Capital.
+                                        Julie Lerner, Investor, 37 Angels (Session Chair), Sharon Cittone, Founder and
+                                        CEO
+                                        Edible Plant Ventures.</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>12:30 pm</span></div>
+                            <div class="session tables-bg">
+                                <span>
+                                    Break
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>2:00 pm</span></div>
+                            <div class="session">
+                                <span class="session-title"> Leveraging Artificial Intelligence
+                                    & Big Data To Gain Consumer Insights
+                                    and Shape A Healthier Future of Food
+                                </span>
+                                <span>
+                                    In the past 5 years, change in consumer perspectives and preference when it comes to
+                                    food has driven change in the food industry.
+                                    How is artificial intelligence driving change and making it easier for companies to
+                                    stay ahead of consumer needs and changing demands? Speakers: <b> Alon Chen, CEO,
+                                        Tastewise | Melanie Bartelme, Global Food Analyst | Riana
+                                        Lynn, CEO Journey Foods (Moderator)</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"></div>
+                            <div class="session tables-bg">
+                                <span class="session-title">
+                                    Leveraging Technology To Promote Transparency, Sustainability and Good Quality
+                                    Products In The Food Industry, Farm To Fork
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time "><span>3:00 pm</span></div>
+                            <div class="session ">
+                                <span>
+                                    This conversation focuses on how transparency, traceability and sustainability in
+                                    food production without compromising food quality in the process. How can technology
+                                    be leveraged to enhance farming? What environmental pain points that needs is to be
+                                    address urgently. How does current practices affect carbonization and decabonization
+                                    of the soil? How are we leveraging technology to manage this?
+                                    <br>
+                                    Speakers: <b>Jillian Semaan, Director, Food and Environment, Earth Day Network |
+                                        Ethan
+                                        Solovei, CIO, HowGood Inc., Marc Oshima, Co-founder and CMO, Aerofarms and Dr.
+                                        Christopher Daugherty (Moderator)</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>4 pm</span></div>
+                            <div class="session tables-bg">
+                                <span>
+                                    Networking, Music
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda no-padding">
+                            <div class="full-row header">
+                                <span style="margin: auto;">Break Out Sessions- Dates TBA Post Summit</span>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Agenda day 2">
+                        <div class="tables-agenda header-padding">
+                            <div class="time header"><span>Time</span></div>
+                            <div class="session header"><span>Session – May 27th, 2021
+                                </span></div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>10:30 am</span></div>
+                            <div class="session"><span>Registration and Networking</span></div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>11:00 am</span></div>
+                            <div class="session tables-bg"><span>Welcome Address</span></div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>11: 20 am</span></div>
+                            <div class="session"><span class="session-title">Fireside chat : Understanding Diet and
+                                    Microbiome Interaction To Impact Health</span>
+                                <span>This presentation will cover some of the latest scientific discoveries, shedding
+                                    light on how small changes in diet could result in significant impact in health.
+                                    Providing insights on discoveries that can completely revolutionize the food
+                                    industry in a few years.
+                                    Speaker: <b>Dr. Liping Zhao, Host: Dr. Julia Olayanju</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>11: 50 am</span></div>
+                            <div class="session tables-bg">
+                                <span class="session-title"> Understanding How Nutrition, Microbiome and Genomics Play
+                                    Crucial Role In Personalized Medicine.
+
+                                </span>
+                                <span>
+                                    Our world is changing and the healthcare crisis we have faced in the past few months
+                                    creates the need to better understand the different elements that interact to shape
+                                    our health outcomes. In this panel conversation, experts will discuss how nutrition,
+                                    genomics and microbiome interact to impact health. Practical innovation that can
+                                    empower people to take proactive steps in shaping their health outcomes will be
+                                    explored.
+                                    Speaker: <b>Dr. Sherry Zhang, CEO, GenoPalate, Dr. Guru Banavar CIO and Head of AI,
+                                        Viome,Dr. Liping Zhao, Professor, Rutgers University, Dr. Nara Szostaczuk,
+                                        Nutrigenomics Expert </b> </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>12 noon</span></div>
+                            <div class="session">
+                                <span>Lunch Break</span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>1:00 pm</span></div>
+                            <div class="session tables-bg">
+                                <span class="session-title">Food As Medicine: A Proactive Look At The Future Of
+                                    Healthcare</span>
+                                <span>
+                                    A deep dive into the concepts of food as medicine. How consumers over the
+                                    generations across cultures have leverage the healing power of food. How food may
+                                    drive change in the food industry in the post COVID-19 world. The impact of emerging
+                                    discoveries in scientific communities and its impact on the future of healthcare.
+                                    Speaker:
+                                    <b>Jonathan Bailor, CEO SANE Solutions Sherry Zhang Ph.D., CEO, GenoPalate
+                                        Deana Minich PhD, President, Food & Spirit LLC.(Session Chair) Mariette Abrahams
+                                        Ph.D., CEO, Qina</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>1:30 pm</span></div>
+                            <div class="session">
+                                <span class="session-title"> Phytochemicals and the Future of Beverage Innovation
+                                </span>
+                                <span>
+                                    Reports by persistence market research projected that phytochemical market will grow
+                                    by 4.7% year over year to a $5.2 billion by 2019, as curiosity and scientific
+                                    discovery of health benefits of these compounds increase. What does the future hold
+                                    with regards to beverage innovation. As health awareness increase and consumer
+                                    preferences shift to favor “good for you” products. How will the industry change in
+                                    the coming years to integrate phytochemicals and reduce sugar and synthetic
+                                    additives?
+                                    Speaker: <b>Julia Olayanju PhD</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>2:00 pm</span></div>
+                            <div class="session tables-bg">
+                                <span class="session-title">Is The Future of Beverage & Snacking Healthier?</span>
+                                <span>
+                                    Snacking is essential and according to reports by NDP future of snacking report for
+                                    2018, more than 386 billion snacks were consumed by Americans that year alone. How
+                                    has this industry changed in the past 5 years in response to changing consumer
+                                    demands for healthier products? How will COVID-19 pandemic change the types of
+                                    products that emerge in the market in the next few years?
+                                    Speaker:
+                                    <b>Caroline Mehta, CEO Union Snack, Katy Galle, SVP, Ocean Spray,
+                                        Kara Landau, CEO Uplift Foods, Lisa Curtis, CEO, Kulikuli Foods</b> </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>3:00 pm</span></div>
+                            <div class="session">
+                                <span class="session-title"> Innovating Alternative Protein: Successfully Breaking
+                                    Through The Consumer Acceptability Barrier.
+                                </span>
+                                <span>
+                                    As the need to innovate alternate protein sources increase, there is a need to
+                                    discuss how to do this successfully to achieve consumer acceptability at scale. This
+                                    panel will discuss practical strategies to successfully achieve widespread consumer
+                                    acceptability. The panel will discuss the role of texture, flavor, and taste in
+                                    consumer acceptance and strategies to innovate this successfully. Different
+                                    innovative alternative protein sources will be discussed as well as their pros and
+                                    cons and more.
+                                    Speaker:
+                                    <b>David Benzaquen Partner, Impossible Plants. Mark Driscoll, Founder and Executive
+                                        Director, Tasting The Future.
+                                        Dr. Anabelle Broadbent, CEO, Verde Ops. Kristie Middleton, VP Business
+                                        Development,
+                                        Rebellyous Foods</b> </span>
+                            </div>
+                        </div>
+
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>3:00 pm</span></div>
+                            <div class="session tables-bg">
+                                <span>
+                                    This conversation focuses on how transparency, traceability and sustainability in
+                                    food production without compromising food quality in the process. How can technology
+                                    be leveraged to enhance farming? What environmental pain points that needs is to be
+                                    address urgently. How does current practices affect carbonization and decabonization
+                                    of the soil? How are we leveraging technology to manage this?
+
+                                    Speakers: <b> Jillian Semaan, Director, Food and Environment, Earth Day Network |
+                                        Ethan
+                                        Solovei, CIO, HowGood Inc., Marc Oshima, Co-founder and CMO, Aerofarms and Dr.
+                                        Christopher Daugherty (Moderator)</b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda">
+                            <div class="time"><span>4:00 pm</span></div>
+                            <div class="session">
+                                <span> Awards /Vote of Thanks</span>
+                            </div>
+                        </div>
+                        <div class="tables-agenda tables-bg">
+                            <div class="time tables-bg"><span>4:30 pm</span></div>
+                            <div class="session tables-bg">
+                                <span> Networking and Music</span>
+                            </div>
+                        </div>
+
+                    </tab>
+
+                </tabset>
+            </div>
+        </section>
+        <section class="section-3">
+            <div class="title">Past & Current Platinum Sponsors
+            </div>
+            <div class="images">
+                <img src="/assets/img/payments/image-1.png" class="img">
+                <img src="/assets/img/payments/image-2.png" class="img">
+                <img src="/assets/img/payments/image-3.png" class="img">
+                <img src="/assets/img/payments/image-4.png" class="img">
+                <img src="/assets/img/payments/image-5.png" class="img">
+            </div>
+        </section>
+        <!-- <section class="section-4">
+            <div class="title">Speakers Include:
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="card-sp">
+                            <img src="/assets/img/payments/speacker-1.png" alt="">
+                            <div class="name">Ivan Farneti</div>
+                            <div class="desc">Partner, <br> Five Season Ventures</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card-sp">
+
+                            <img src="/assets/img/payments/speacker-2.png" alt="">
+                            <div class="name">Joshua Siegel
+                            </div>
+                            <div class="desc">Partner, <br>Acronym Venture Capital</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card-sp">
+
+                            <img src="/assets/img/payments/speacker-3.png" alt="">
+                            <div class="name">Julia Olayanju Ph.D.
+                            </div>
+                            <div class="desc">
+                                Executive Director,
+                                <br>
+                                FoodNiche® Global Health Institute
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card-sp">
+
+                            <img src="/assets/img/payments/speacker-4.png" alt="">
+                            <div class="name">Guru Banavar Ph.D.
+                            </div>
+                            <div class="desc">
+                                CTO and Head of AI,
+                                <br>
+                                Viome
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card-sp">
+
+                            <img src="/assets/img/payments/speacker-5.png" alt="">
+                            <div class="name">Liping Zhao Ph.D.
+                            </div>
+                            <div class="desc">Distinguished Professor,
+                                <br>
+                                Rutgers University
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card-sp">
+
+                            <img src="/assets/img/payments/speacker-6.png" alt="">
+                            <div class="name">Sharon Cittone
+                            </div>
+                            <div class="desc">
+                                Founder & CEO,
+                                <br>
+                                Edible Plant Ventures
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </div>
+    <app-footer></app-footer>
+</ng-container>
+<app-login-reg-modal></app-login-reg-modal>

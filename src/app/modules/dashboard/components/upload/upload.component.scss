@@ -1,0 +1,29 @@
+.modal-buttons .btn {
+  margin-right: 20px;
+}
+
+.media-objects {
+  height: 110px;
+
+  .images {
+    width: 150px;
+    //   height: 100px;
+    float: left;
+  }
+
+  i {
+    font-size: 1em;
+    margin-left: 2%;
+    cursor: pointer;
+  }
+}
+
+#preloader {
+  position: absolute;
+  background: none;
+  z-index: 9999999;
+}
+
+.input {
+  padding-left: 0.6em;
+}

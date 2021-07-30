@@ -1,0 +1,113 @@
+.group-element {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  border: 2px #744c28 solid;
+  margin: 20px 0;
+  overflow: hidden;
+  background: url("/assets/img/placeholder.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.selected {
+  border-color: #eea236;
+}
+
+ul {
+  list-style: none;
+}
+
+.group-element-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-warning {
+  border-radius: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #db8d2d;
+  border: #db8d2d solid 1px;
+  color: white;
+}
+
+.group-title {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  background: rgba(116, 76, 40, 0.6);
+  font: normal 18px/30px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.group__edit-button-box {
+  margin-top: 6px;
+}
+
+.follow-button {
+  background-color: #eea236;
+  color: white;
+  font-size: 22px;
+  border-radius: 5px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.follow-button:hover,
+.follow-button:active,
+.follow-button:focus {
+  text-decoration: none;
+  color: white;
+}
+
+.friend-name:focus,
+.friend-name:active,
+.friend-name:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.friend-name.selected {
+  border: 3px solid #eea236;
+}
+
+.group-title h2 {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.group-link {
+  margin-bottom: 10px;
+}
+
+.go-to-group {
+  margin: auto;
+  color: white;
+}
+
+.premium {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.learn-more {
+  border-radius: 40px;
+  background-color: #f6921e;
+  border: #f6921e solid 1px;
+  color: white;
+  margin: auto;
+  width: auto;
+}
+
+.content {
+  min-height: calc(100vh - 250px);
+  background: #f4f4fb;
+}

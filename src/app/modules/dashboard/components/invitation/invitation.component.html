@@ -1,0 +1,81 @@
+<div bsModal #modal="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Invite your friends</h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="modal.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="!useGmail">
+          <form
+            [formGroup]="invitationForm"
+            (ngSubmit)="onSubmit(invitationForm.value)"
+          >
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                [formControl]="email"
+                class="form-control"
+                id="email"
+                aria-describedby="email"
+                placeholder="Enter email"
+              />
+            </div>
+            <button
+              type="submit"
+              class=" btn invite btn-lg btn-block"
+              [disabled]="!email.valid"
+            >
+              Invite
+            </button>
+          </form>
+          <div class="provider-invite">
+            <div>OR</div>
+            <div class="holder_form sub_but">
+              <a (click)="getConstactsFromGoogle()" class="google_but">
+                <div class="text">
+                  <i class="fab icon-g"></i> Invite from Google
+                </div>
+              </a>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="useGmail">
+          <div
+            class="form-check"
+            *ngFor="let item of emailsFromGoogle; let i = index"
+          >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [(ngModel)]="item.invite"
+              id="{{ 'checkbox-' + i }}"
+            />
+            <label
+              class="form-check-label"
+              style="word-break: break-all;"
+              for="{{ 'checkbox-' + i }}"
+            >
+              {{ item.email }}
+            </label>
+          </div>
+          <button
+            class="btn invite btn-lg btn-block"
+            [disabled]="!emailsFromGoogle.length"
+            (click)="inviteFromGmail()"
+          >
+            Invite
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.video-section {
+    min-height: calc(100vh - 200px);
+    .container {
+        top: -50%;
+        position: relative;
+    }
+
+    // .embed-responsive {
+    //   position: inherit !important;
+
+    // }
+
+    #video-background {
+        position: absolute;
+        top: 0;
+        height: auto;
+        background-size: cover;
+    }
+
+    .text {
+        font-size: 2em;
+        flex-direction: column;
+        text-align: center;
+    }
+}

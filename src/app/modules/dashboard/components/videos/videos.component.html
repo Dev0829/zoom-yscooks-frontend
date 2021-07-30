@@ -1,0 +1,21 @@
+<app-header></app-header>
+<section>
+  <div class="video-section row no-gutters">
+    <div class="embed-responsive embed-responsive-16by9">
+      <video
+        playsinline
+        controls
+        id="video-background"
+        class="embed-responsive-item"
+        #video
+      >
+        <source
+          src="{{videos[id]}}"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<app-login-reg-modal></app-login-reg-modal>

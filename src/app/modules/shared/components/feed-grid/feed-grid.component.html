@@ -1,0 +1,214 @@
+<div class="container-fluid">
+  <div class="timeline row"
+    popover="If you invite friends you will see their posts here along with yours and also information from the administrators"
+    container="body" triggers="" [isOpen]="popovers.post">
+    <div class="col-xs-12 col-md-6 col-lg-4 item" *ngIf="showAddFeed()">
+      <div class="card">
+        <div class="card-header">What´s new</div>
+        <div class="card-body">
+          <div class="card-text" popover="Click here to type texts and upload pictures or videos" container="body"
+            triggers="" [isOpen]="popovers.post">
+            <quill-editor [(ngModel)]="feed.text"
+              placeholder="Sharing company updates.">
+            </quill-editor>
+            <!-- <textarea
+              name="status"
+              required
+              class="form-control share-text"
+              rows="3"
+              placeholder="Join The Challenge, share your creative cooking experiences."
+              [(ngModel)]="feed.text"
+            ></textarea> -->
+          </div>
+          <div class="card-text" *ngIf="uploaderImage?.queue?.length">
+            <div *ngFor="let item of uploaderImage.queue" class="media-objects">
+              <img src="" imgPreview [image]="item?._file" class="images img-fluid" />
+              <i class="fas fa-trash" (click)="item.remove()"></i>
+            </div>
+          </div>
+          <div class="card-text" *ngIf="uploaderVideo?.queue?.length">
+            <div *ngFor="let item of uploaderVideo.queue">
+              {{ item?.file?.name }}
+              <i class="fas fa-trash" (click)="item.remove()"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer share-buttons">
+          <ng-container *ngIf="
+              !uploaderImage?.queue?.length && !uploaderVideo?.queue?.length
+            ">
+            <div>
+              <label for="image-input"> <i class="far fa-image"></i> </label>
+              <input class="upload-input" id="image-input" type="file" tooltip="Picture uploads" ng2FileSelect
+                [uploader]="uploaderImage" role="image-input" (click)="addImageUploader()" accept="image/*" />
+            </div>
+            <div>
+              <label for="video-input"> <i class="fas fa-video"></i> </label>
+              <input class="upload-input" id="video-input" type="file" ng2FileSelect [uploader]="uploaderVideo"
+                role="video-input" (click)="addVideoUploader()" tooltip="Video uploads"
+                accept=".mp4, .m4p, m4v, .mpg, .mpeg" />
+            </div>
+
+            <div *ngIf="user?.isAdmin">
+              <label for="pdf-input"> <i class="far fa-file-pdf"></i> </label>
+              <input class="pdf-input" id="pdf-input" type="file" ng2FileSelect [uploader]="uploaderPdf"
+                role="pdf-input" (click)="addPdfUploader()" tooltip="PDF uploads" accept="application/pdf" />
+            </div>
+            <small> * max file size 250mb </small>
+          </ng-container>
+
+          <button type="submit" class="btn btn-primary btn-xs pull-right btn-warning" (click)="checkGroupsModal()"
+            [disabled]="!feed.text.length">
+            Post
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-4 item" *ngFor="let item of data; let itemIndex = index">
+      <div class="card">
+        <div class="card-header">
+          <a *ngIf="user?.uid" class="pointer profile-link" routerLink="{{ '/profile/' + item?.user?.uid }}">{{
+            item?.user?.name }}</a>
+          <a *ngIf="!user?.uid" class="profile-link">{{ item?.user?.name }}</a>
+          <div class="pull-right actions" *ngIf="user?.uid === item?.user?.uid || user?.isAdmin">
+            <ng-container *ngIf="item?.postid !== feedToEdit?.postid">
+              <i class="fas fa-edit" (click)="edit(item)"></i>
+              <i class="fas fa-trash" (click)="deleteFeed(item)"></i>
+            </ng-container>
+            <ng-container *ngIf="item?.postid === feedToEdit?.postid">
+              <i class="far fa-save" (click)="checkGroupsModal()"></i><i class="far fa-times-circle"
+                (click)="cancelEditFeed()"></i>
+            </ng-container>
+          </div>
+          <div class="pull-right actions" *ngIf="
+              user?.uid &&
+              user?.uid !== item?.user?.uid &&
+              !user?.isAdmin &&
+              !item?.user?.isAdmin
+            ">
+            <i class="fas fa-exclamation-circle" placement="left" container="body" tooltip="Tell"
+              (click)="openReportModal(templateReportModal, item)"></i>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <div class="pointer" routerLink="{{ '/posts/' + item.postid }}" [innerHTML]="item.text"></div>
+            <ng-container *ngIf="item?.postid === feedToEdit?.postid">
+              <quill-editor [(ngModel)]="feedToEdit.text"> </quill-editor>
+            </ng-container>
+          </div>
+          <ng-container *ngIf="item?.media?.length">
+            <ng-container *ngFor="let media of item.media">
+              <img *ngIf="media.type == 'image'" class="card-img pointer" src="{{ media?.url }}" alt="Card image"
+                routerLink="{{ '/posts/' + item.postid }}" />
+              <video *ngIf="media.type == 'video'" class="card-img" controls>
+                <source [src]="media?.url" />
+              </video>
+              <pdf-viewer *ngIf="media.type == 'pdf'" [src]="media?.url" [page]="1" [fit-to-page]="true"
+                [show-all]="false" [render-text]="false" (click)="readPDF(media)" style="cursor: pointer"></pdf-viewer>
+            </ng-container>
+          </ng-container>
+        </div>
+        <!-- <div class="card-footer share-buttons">
+          <span class="float-right">
+            {{ item?.comment?.length }} comment(-s)
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="coment" *ngFor="let comment of item.comment; let last = last" [ngClass]="{ 'last-coment': last }">
+            <img class="photo" src="{{
+              comment?.user?.profileImage || '/assets/img/profile.png'
+              }}" />
+            <div class="text">
+              <span class="comment-author" routerLink="{{ '/profile/' + comment?.user?.uid }}">
+                {{ comment?.user?.name }}
+              </span>
+              {{ comment.text }}
+              <i *ngIf="comment?.user?.uid === user?.uid || user?.isAdmin" class="fas fa-trash pull-right pointer"
+                (click)="deleteComent(itemIndex, comment)"></i>
+            </div>
+          </div>
+          <div class="new-coment">
+            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Add comment" [(ngModel)]="newComent[item.postid]" />
+              <div class="input-group-prepend">
+                <div class="input-group-text pointer" (click)="addComent(item.postid)">
+                  <i class="fas fa-comment pull-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #emptYmodal="bs-modal" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<ng-template #templateReportModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Report to admin</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Message</label>
+      <input type="text" class="form-control" [(ngModel)]="warning.text" placeholder="Enter reason" />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" [disabled]="!warning.text" (click)="postReport()">
+      Report
+    </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">
+      Cancel
+    </button>
+  </div>
+</ng-template>
+
+<div bsModal #templateGroupsModal="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Select Groups</h4>
+        <button type="button" class="close pull-right" (click)="templateGroupsModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check" *ngFor="let item of allGroups; let i = index">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="item.needToAdd" id="{{ 'checkbox-' + i }}"
+            (change)="checkGroupCheckbox(item)" />
+          <label class="form-check-label" style="word-break: break-all" for="{{ 'checkbox-' + i }}">
+            {{ item.name }}
+          </label>
+        </div>
+        <button *ngIf="!feedToEdit?.postid && !feedToEdit.text" class="btn btn-success" (click)="addGroups()">
+          Create Post
+        </button>
+        <button *ngIf="feedToEdit?.postid && feedToEdit.text" class="btn btn-success" (click)="addGroups()">
+          Edit Post
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #PDFmodal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" (click)="PDFmodal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="pdfUrl && pdfUrl.length">
+        <pdf-viewer [src]="pdfUrl" [fit-to-page]="true"></pdf-viewer>
+      </div>
+    </div>
+  </div>
+</div>
+<app-delete-post (deleted)="feedDeleted()"></app-delete-post>

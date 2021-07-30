@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-3 col-md-6 col-12">
+            <div class="desc">
+                <div class="title">Podcast</div>
+                <div class="description">{{data?.description[0]}}</div>
+            </div>
+            <div class="data-block" *ngIf="data?.item">
+                <div class="title">All Podcast</div>
+                <div class="podcast-block row " *ngFor="let item of data.item">
+                    <div class="col-12 col-md-6 img-block">
+                        <img src="{{item['itunes:image'][0]?.$?.href}}" class="img">
+                        <audio controls src="{{item?.enclosure[0]?.$?.url}}">
+                        </audio>
+                    </div>
+                    <div class="dcol-12 col-md-6 podcast-data-block">
+                        <div class="date">{{item?.pubDate[0]}}</div>
+                        <div class="p-title">{{item?.title[0]}}</div>
+                        <div class="p-description" [innerHtml]="item?.description[0]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offset-md-2 col-md-1 col-12">
+            <div class="time-line">
+                <ul>
+                    <li>
+                        <a routerLink='/podcast' class="name">Podcast</a>
+                    </li>
+                    <li>
+                        <a class="name" href="https://www.gfhisummit.com/" target="_blank">FoodNiche® <br>
+                            Global Health Summit</a>
+                    </li>
+                    <li>
+                        <a class="name" target="_blank" href="https://www.disruptfoodsummit.com/">FoodNiche® <br>
+                            Tech Summit</a>
+                    </li>
+                    <li>
+                        <a class="name" routerLink='/join-to-conference'>Videos</a>
+                    </li>
+                    <li>
+                        <a class="name" routerLink='/'>Contacts us</a>
+                    </li>
+                    <li>
+                        <a class="name" routerLink='/payments/select'>Join Us!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<app-login-reg-modal></app-login-reg-modal>

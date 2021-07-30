@@ -1,0 +1,54 @@
+.invite {
+  background-color: #f6921e;
+  border: #f6921e solid 1px;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  font: 20px/50px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.provider-invite {
+  margin-top: 20px;
+  text-align: center;
+  div {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.google_but {
+  background: #fff;
+  border: 1px solid #adb3b9;
+  border-bottom: 1px solid #adb3b9;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  padding: 0;
+  text-align: center;
+  height: 45px;
+  display: flex;
+  margin: auto;
+  cursor: pointer;
+  .text {
+    margin: auto;
+  }
+
+  .icon-g {
+    background-image: url("/assets/img/g-logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.modal-body {
+  min-height: 200px;
+}

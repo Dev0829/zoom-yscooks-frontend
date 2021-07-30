@@ -1,0 +1,76 @@
+.navbar {
+  padding-top: 1em;
+  height: 90px;
+  background-color: rgb(250, 241, 229);
+  width: 100%;
+  .input-group-search {
+    border-radius: 40px;
+    margin: 6px 6px 6px -15px;
+    border: #f0f0f0 solid 1px;
+    padding-left: 20px;
+
+    .input-enter {
+      cursor: pointer;
+    }
+  }
+
+  .btn-login {
+    background: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #db8d2d;
+  }
+
+  .hand_4 {
+    width: 60px;
+  }
+
+  .navbar-brand {
+    cursor: pointer;
+  }
+}
+
+.logo-supercook {
+  height: 30px;
+  width: auto;
+}
+
+.dropdown-menu-mobile {
+  margin-left: -190px;
+}
+
+.dropdown-menu {
+  left: unset !important;
+  inset: unset !important;
+}
+
+.dropdown-animated {
+  min-height: 300px;
+}
+
+.main-header-sm {
+  .logo-supercook {
+    height: 60px;
+  }
+
+  @media (min-width: 1200px) {
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+      max-width: 890px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-supercook {
+    width: 200px;
+    height: auto;
+  }
+
+  .navbar-brand {
+    max-width: 80%;
+  }
+}

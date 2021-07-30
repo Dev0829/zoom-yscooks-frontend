@@ -1,0 +1,128 @@
+<app-header></app-header>
+<section id="first-block">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="d-flex flex-column">
+            <div class="profile-img d-flex justify-content-center">
+              <img
+                src="{{ profile?.profileImage || '/assets/img/profile.png' }}"
+                class="img-fluid rounded-circle"
+              />
+            </div>
+            <div class="connect d-flex justify-content-center">
+              <!-- <button
+                type="button"
+                class="btn btn-connect"
+                *ngIf="profile?.uid !== user?.uid"
+                (click)="connectClicked()"
+              >
+                {{ testUserConnected() }}
+              </button> -->
+              <button
+                type="button"
+                class="btn btn-connect"
+                *ngIf="profile?.uid === user?.uid"
+                (click)="openEditModal()"
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="user-name">
+            {{ profile?.name }}
+          </div>
+          <div class="user-descriptions">{{ profile?.company }}</div>
+          <div class="user-descriptions">{{ profile?.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="second-block">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="row">
+            <div class="col-12">
+              <div class="column-name">My Posts</div>
+            </div>
+            <div class="col-md-6 col-12 posts" *ngFor="let post of posts">
+              <div class="card">
+                <div class="d-flex media">
+                  <img
+                    *ngIf="(post?.media)[0]?.type == 'image'"
+                    class="justify-content-center pointer"
+                    routerLink="{{ '/post/' + post.postid }}"
+                    src="{{
+                      (post?.media)[0]?.url || '/assets/img/placeholder.png'
+                    }}"
+                    alt="image"
+                  />
+                  <img
+                    *ngIf="(post?.media)[0]?.type == 'video'"
+                    class="justify-content-center pointer"
+                    routerLink="{{ '/post/' + post.postid }}"
+                    src="/assets/img/video-placeholder.jpg"
+                    alt="image"
+                  />
+                </div>
+                <!-- <div class="card-img-overlay" *ngIf="item?.tutorial">
+                  <div
+                    class="card-text pointer link"
+                    routerLink="{{
+                      '/blog/detail/' +
+                        item?.tutorial?.tutorialid +
+                        '/' +
+                        item?.tutorial?.title
+                    }}"
+                  >
+                    {{ item?.tutorial?.title }}
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="row">
+            <div class="col-12">
+              <div class="column-name">Friends</div>
+            </div>
+            <div class="col-md-6 col-12 posts" *ngFor="let item of friends">
+              <div
+                class="card pointer"
+                routerLink="{{ '/profile/' + item?.invitedid }}"
+              >
+                <div class="d-flex">
+                  <img
+                    class="justify-content-center"
+                    src="{{
+                      item?.invited?.profileImage ||
+                        '/assets/img/placeholder.png'
+                    }}"
+                    alt="image"
+                  />
+                </div>
+                <div class="card-img-overlay">
+                  <div class="card-text pointer link">
+                    {{ item?.invited?.firstName }}
+                    {{ item?.invited?.lastName | slice: 0:1 }}.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<app-edit-profile
+  (profileEdited)="getUserProfileById(profile.uid)"
+></app-edit-profile>
